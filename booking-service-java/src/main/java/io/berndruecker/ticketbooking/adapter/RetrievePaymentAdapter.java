@@ -22,7 +22,7 @@ public class RetrievePaymentAdapter {
   
   @Autowired
   protected RabbitTemplate rabbitTemplate;
-  
+
   @JobWorker(type = "retrieve-payment")
   public Map<String, Object> retrievePayment(final ActivatedJob job) {
       logger.info("Send message to retrieve payment [" + job + "]");
