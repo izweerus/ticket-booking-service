@@ -20,7 +20,7 @@ public class GenerateTicketAdapter {
 
   // This should be of course injected and depends on the environment.
   // Hard coded for simplicity here
-  public static String ENDPOINT = "http://localhost:3000/ticket";
+  public static String ENDPOINT = "https://4wu2e4jg44.execute-api.eu-central-1.amazonaws.com/Prod/ticket";
 
   @Autowired
   private RestTemplate restTemplate;
