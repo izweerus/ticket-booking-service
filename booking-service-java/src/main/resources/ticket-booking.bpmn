@@ -16,7 +16,12 @@
     </bpmn:startEvent>
     <bpmn:serviceTask id="Activity_1g89uec" name="Reserve Seats">
       <bpmn:extensionElements>
-        <zeebe:taskDefinition type="reserve-seats" />
+        <zeebe:taskDefinition type="lambda" />
+        <zeebe:taskHeaders>
+          <zeebe:header key="functionName" value="SeatReservationService" />
+          <zeebe:header key="body" value="{&#34;body&#34;:  &#34;{{{variablesJson}}}&#34;  }" />
+          <zeebe:header key="resultName" value="seatReservationResult" />
+        </zeebe:taskHeaders>
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_19ebf54</bpmn:incoming>
       <bpmn:outgoing>Flow_0qbwde5</bpmn:outgoing>
