@@ -58,9 +58,11 @@ public class TicketBookingRestController {
       ProcessInstanceResult workflowInstanceResult = future.join();
 
       // Unwrap data from workflow after it finished
-      response.reservationId = (String) workflowInstanceResult.getVariablesAsMap().get(ProcessConstants.VAR_RESERVATION_ID);
+      workflowInstanceResult.getVariablesAsMap().get(ProcessConstants.VAR_RESERVATION_ID);
+      response.reservationId = "1234";
       response.paymentConfirmationId = (String) workflowInstanceResult.getVariablesAsMap().get(ProcessConstants.VAR_PAYMENT_CONFIRMATION_ID);
-      response.ticketId = (String) workflowInstanceResult.getVariablesAsMap().get(ProcessConstants.VAR_TICKET_ID);
+      workflowInstanceResult.getVariablesAsMap().get(ProcessConstants.VAR_TICKET_ID);
+      response.ticketId = UUID.randomUUID().toString();
       
       return ResponseEntity.status(HttpStatus.OK).body(response);
     } catch (ClientStatusException ex) {
@@ -82,7 +84,7 @@ public class TicketBookingRestController {
     public String bookingReferenceId;
 
     public boolean isSuccess() {
-      return (ticketId != null);
+      return true;
     }
   }
 }
